@@ -251,9 +251,5 @@ paket-files/
 .idea/
 *.sln.iml
 
-# LoginUi
-host/EasyAbp.Abp.LoginUi.IdentityServer/Logs/logs.txt
-host/EasyAbp.Abp.LoginUi.HttpApi.Host/Logs/logs.txt
-host/EasyAbp.Abp.LoginUi.Web.Host/Logs/logs.txt
-host/EasyAbp.Abp.LoginUi.Web.Unified/Logs/logs.txt
-host/EasyAbp.Abp.LoginUi.Blazor.Server.Host/Logs/logs.txt
+# Logs
+**/log*.txt
