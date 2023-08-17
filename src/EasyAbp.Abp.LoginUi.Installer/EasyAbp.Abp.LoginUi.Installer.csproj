@@ -17,4 +17,12 @@
       <EmbeddedResource Include="..\..\EasyAbp.Abp.LoginUi.abpmdl.json" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Update="ConfigureAwait.Fody" Version="3.3.2" />
+      <PackageReference Update="Fody" Version="6.8.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
 </Project>

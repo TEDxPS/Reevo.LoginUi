@@ -143,19 +143,19 @@ public class IdentityServerDataSeedContributor : IDataSeedContributor, ITransien
         var configurationSection = _configuration.GetSection("IdentityServer:Clients");
 
         //Web Client
-        var webClientId = configurationSection["LoginUi_Web:ClientId"];
+        var webClientId = configurationSection["Reevo.LoginUi.Web:ClientId"];
         if (!webClientId.IsNullOrWhiteSpace())
         {
-            var webClientRootUrl = configurationSection["LoginUi_Web:RootUrl"].EnsureEndsWith('/');
+            var webClientRootUrl = configurationSection["Reevo.LoginUi.Web:RootUrl"].EnsureEndsWith('/');
 
-            /* LoginUi_Web client is only needed if you created a tiered
+            /* Reevo.LoginUi.Web client is only needed if you created a tiered
              * solution. Otherwise, you can delete this client. */
 
             await CreateClientAsync(
                 name: webClientId,
                 scopes: commonScopes,
                 grantTypes: new[] { "hybrid" },
-                secret: (configurationSection["LoginUi_Web:ClientSecret"] ?? "1q2w3e*").Sha256(),
+                secret: (configurationSection["Reevo.LoginUi.Web:ClientSecret"] ?? "1q2w3e*").Sha256(),
                 redirectUri: $"{webClientRootUrl}signin-oidc",
                 postLogoutRedirectUri: $"{webClientRootUrl}signout-callback-oidc",
                 frontChannelLogoutUri: $"{webClientRootUrl}Account/FrontChannelLogout",
@@ -164,16 +164,16 @@ public class IdentityServerDataSeedContributor : IDataSeedContributor, ITransien
         }
 
         //Console Test / Angular Client
-        var consoleAndAngularClientId = configurationSection["LoginUi_App:ClientId"];
+        var consoleAndAngularClientId = configurationSection["Reevo.LoginUi.App:ClientId"];
         if (!consoleAndAngularClientId.IsNullOrWhiteSpace())
         {
-            var webClientRootUrl = configurationSection["LoginUi_App:RootUrl"]?.TrimEnd('/');
+            var webClientRootUrl = configurationSection["Reevo.LoginUi.App:RootUrl"]?.TrimEnd('/');
 
             await CreateClientAsync(
                 name: consoleAndAngularClientId,
                 scopes: commonScopes,
                 grantTypes: new[] { "password", "client_credentials", "authorization_code" },
-                secret: (configurationSection["LoginUi_App:ClientSecret"] ?? "1q2w3e*").Sha256(),
+                secret: (configurationSection["Reevo.LoginUi.App:ClientSecret"] ?? "1q2w3e*").Sha256(),
                 requireClientSecret: false,
                 redirectUri: webClientRootUrl,
                 postLogoutRedirectUri: webClientRootUrl,
@@ -182,16 +182,16 @@ public class IdentityServerDataSeedContributor : IDataSeedContributor, ITransien
         }
 
         // Blazor Client
-        var blazorClientId = configurationSection["LoginUi_Blazor:ClientId"];
+        var blazorClientId = configurationSection["Reevo.LoginUi.Blazor:ClientId"];
         if (!blazorClientId.IsNullOrWhiteSpace())
         {
-            var blazorRootUrl = configurationSection["LoginUi_Blazor:RootUrl"].TrimEnd('/');
+            var blazorRootUrl = configurationSection["Reevo.LoginUi.Blazor:RootUrl"].TrimEnd('/');
 
             await CreateClientAsync(
                 name: blazorClientId,
                 scopes: commonScopes,
                 grantTypes: new[] { "authorization_code" },
-                secret: configurationSection["LoginUi_Blazor:ClientSecret"]?.Sha256(),
+                secret: configurationSection["Reevo.LoginUi.Blazor:ClientSecret"]?.Sha256(),
                 requireClientSecret: false,
                 redirectUri: $"{blazorRootUrl}/authentication/login-callback",
                 postLogoutRedirectUri: $"{blazorRootUrl}/authentication/logout-callback",
@@ -200,16 +200,16 @@ public class IdentityServerDataSeedContributor : IDataSeedContributor, ITransien
         }
 
         // Swagger Client
-        var swaggerClientId = configurationSection["LoginUi_Swagger:ClientId"];
+        var swaggerClientId = configurationSection["Reevo.LoginUi.Swagger:ClientId"];
         if (!swaggerClientId.IsNullOrWhiteSpace())
         {
-            var swaggerRootUrl = configurationSection["LoginUi_Swagger:RootUrl"].TrimEnd('/');
+            var swaggerRootUrl = configurationSection["Reevo.LoginUi.Swagger:RootUrl"].TrimEnd('/');
 
             await CreateClientAsync(
                 name: swaggerClientId,
                 scopes: commonScopes,
                 grantTypes: new[] { "authorization_code" },
-                secret: configurationSection["LoginUi_Swagger:ClientSecret"]?.Sha256(),
+                secret: configurationSection["Reevo.LoginUi.Swagger:ClientSecret"]?.Sha256(),
                 requireClientSecret: false,
                 redirectUri: $"{swaggerRootUrl}/swagger/oauth2-redirect.html",
                 corsOrigins: new[] { swaggerRootUrl.RemovePostFix("/") }
