@@ -7,10 +7,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>TEDxPS</Authors>
     <Description>An ABP module that provides enhanced login pages.</Description>
-    <PackageIconUrl>https://avatars3.githubusercontent.com/u/58311641?s=128</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/EasyAbp/Abp.LoginUi</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/EasyAbp/Abp.LoginUi</RepositoryUrl>
-    <PackageTags>abp module easyabp login page ui external enhanced</PackageTags>
+    <PackageIconUrl>https://avatars.githubusercontent.com/u/126063341?s=200</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/TEDxPS/Reevo.LoginUi</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TEDxPS/Reevo.LoginUi</RepositoryUrl>
+    <PackageTags>abp module login page ui external enhanced</PackageTags>
     <Company>TEDxPS</Company>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
